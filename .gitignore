@@ -1,0 +1,43 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+.venv
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Data files (НЕ загружаем большие файлы!)
+data/
+*.pdf
+chroma_db/
+
+# Models (большие файлы embedding моделей)
+models/
+*.safetensors
+*.bin
+
+# Environment variables (секреты, API ключи)
+.env
+config_local.py
+
+# IDE settings
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# macOS
+.DS_Store
+
+# Logs
+*.log
+
+# ChromaDB persistent storage
+chroma_data/
+
