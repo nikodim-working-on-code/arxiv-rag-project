@@ -63,7 +63,7 @@ if __name__ == "__main__":
 
     # print(json.dumps(collection.get(), indent=2, ensure_ascii=False))
     
-    user_query = "How much training data was collected?"
+    user_query = "what are disadvantages of using PAR?"
 
     query_embedding = embedding_model.encode(
         user_query,
@@ -96,3 +96,32 @@ if __name__ == "__main__":
         print(f"   Text: {document[:150]}...")
         print()
     
+    # === LLM Generation (добавь в конец файла) ===
+    from langchain_ollama import OllamaLLM
+
+    # Инициализируем локальную LLM
+    # model="qwen2.5:1.5b" - модель которую скачали
+    # temperature=0.3 - низкая креативность, больше фактов (0=детерминированно, 1=креативно)
+    llm = OllamaLLM(model="llama3.2:3b", temperature=0.3)
+
+    # Собираем контекст из топ-3 найденных чанков
+    # join() объединяет список строк через разделитель "\n\n"
+    context = "\n\n".join([doc for doc in results['documents'][0]])
+
+    # Создаём промпт для LLM
+    # System instruction + Context (retrieved chunks) + User query
+    prompt = f"""You are a helpful research assistant. Answer the question based ONLY on the provided context from arXiv papers.
+
+    Context:
+    {context}
+
+    Question: {user_query}
+
+    Answer (be concise and factual):"""
+
+    # Генерируем ответ
+    print("\n" + "="*70)
+    print("🤖 LLM Answer:")
+    print("="*70)
+    answer = llm.invoke(prompt)
+    print(f"\n{answer}\n")
