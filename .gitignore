@@ -12,17 +12,17 @@ ENV/
 # Jupyter Notebook
 .ipynb_checkpoints
 
-# Data files (НЕ загружаем большие файлы!)
+# Data files
 data/
 *.pdf
 chroma_db/
 
-# Models (большие файлы embedding моделей)
+# Models
 models/
 *.safetensors
 *.bin
 
-# Environment variables (секреты, API ключи)
+# Environment variables
 .env
 config_local.py
 
@@ -61,7 +61,7 @@ weights.json
 optimization_history.json
 temp_pdfs/
 
-# Development files (НЕ пушим, но оставляем локально)
+# Development files
 test_arxiv.py
 data_collect.py
 draft.txt
