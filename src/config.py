@@ -21,7 +21,7 @@ class Config:
         'gamma': 0.25,
         'delta': 0.1,
         'tau': 0.5,
-        'lambda': 0.05,
+        'lambda': 0.01,
         'num_queries': 0,
         'avg_loss': None
     }
