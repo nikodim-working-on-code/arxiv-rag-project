@@ -41,3 +41,36 @@ config_local.py
 # ChromaDB persistent storage
 chroma_data/
 
+# Secrets
+.env
+
+# Optimization data
+weights.json
+optimization_history.json
+temp_pdfs/
+
+# Environment
+.env
+*.pyc
+__pycache__/
+venv/
+env/
+
+# Data & Logs
+weights.json
+optimization_history.json
+temp_pdfs/
+
+# Development files (НЕ пушим, но оставляем локально)
+test_arxiv.py
+data_collect.py
+draft.txt
+visual.py
+chunk_graph_3d.html
+
+# IDE & OS
+.vscode/
+.idea/
+*.swp
+.DS_Store
+
