@@ -41,7 +41,11 @@ $$
 f = e^{-\lambda \cdot t}
 $$
 
-where $t$ is the number of days since publication, and $\lambda = 0.05$ controls decay rate.
+where $t$ is the number of days since publication, and $\lambda = 0.01$ controls decay rate. This provides a gradual decay:
+- 30 days: $f \approx 0.74$
+- 90 days: $f \approx 0.41$
+- 180 days: $f \approx 0.17$
+- 365 days: $f \approx 0.03$
 
 **Coverage** — $c_{\text{avg}}$: Average similarity of chunks above threshold $\tau$
 
@@ -77,6 +81,14 @@ $$
 
 Here, $r_i$ represents the relevance score at position $i$, and the logarithmic discount penalizes relevant documents appearing lower in 
 the ranking.
+
+**Relevance Scores**: For each paper in the ranking, we compute a ground-truth relevance score as the cosine similarity between the query embedding and the full paper embedding (title + abstract):
+
+$$
+r_i = \frac{\mathbf{q} \cdot \mathbf{p}_i}{\|\mathbf{q}\| \|\mathbf{p}_i\|}
+$$
+
+where $\mathbf{q}$ is the query embedding and $\mathbf{p}_i$ is the embedding of paper $i$.
 
 **Loss function**:
 
