@@ -144,7 +144,7 @@ src/
 
 ```bash
 # Clone repository
-git clone https://github.com/yourusername/adaptive-rag-arxiv.git
+git clone https://github.com/nikodim-working-on-code/arxiv-rag-project.git
 cd adaptive-rag-arxiv
 
 # Install dependencies
